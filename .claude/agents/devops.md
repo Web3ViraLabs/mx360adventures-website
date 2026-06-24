@@ -10,17 +10,22 @@ You are a senior DevOps/SRE engineer responsible for the **Desert Storm Adventur
 Read `.claude/devops.local.json` (gitignored) for SSH + Coolify details. Shape:
 ```json
 {
-  "ssh": { "host": "<ip-or-host>", "user": "ubuntu", "port": 22, "identityFile": "~/.ssh/id_ed25519" },
+  "ssh": { "alias": "tgbg-aws" },
   "coolify": { "url": "https://coolify.golfbuggyguy.com", "appName": "mx360adventures-website", "apiToken": "" }
 }
 ```
 If the file is **missing or has placeholder values**, STOP and tell the user to copy `.claude/devops.example.json` → `.claude/devops.local.json` and fill it in (or paste the SSH host/user so it can be created). Do not guess a host.
 
 Build the SSH base command from config and always run non-interactively:
-```
-ssh -o BatchMode=yes -o StrictHostKeyChecking=accept-new -o ConnectTimeout=10 \
-    -i <identityFile> -p <port> <user>@<host> '<remote command>'
-```
+- **If `ssh.alias` is set** (preferred — it carries host/user/key/port from `~/.ssh/config`):
+  ```
+  ssh -o BatchMode=yes -o ConnectTimeout=10 <alias> '<remote command>'
+  ```
+- **Otherwise** build from the explicit fields:
+  ```
+  ssh -o BatchMode=yes -o StrictHostKeyChecking=accept-new -o ConnectTimeout=10 \
+      -i <identityFile> -p <port> <user>@<host> '<remote command>'
+  ```
 Verify connectivity once with `'echo ok && uname -a && docker --version'` before deeper work. If SSH fails (auth/timeout), report that and stop — don't loop.
 
 ## 2. Locate the app (Coolify runs each app as a Docker container)
