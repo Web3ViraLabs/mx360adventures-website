@@ -34,6 +34,10 @@ yarn-error.log*
 .env*
 !.env.example
 
+# local-only Claude/devops config (server IPs, tokens) — never commit
+.claude/devops.local.json
+.claude/**/*.local.json
+
 # vercel
 .vercel
 

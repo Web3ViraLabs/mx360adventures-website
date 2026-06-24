@@ -1,0 +1,14 @@
+{
+  "_comment": "Copy this file to .claude/devops.local.json (gitignored) and fill in your server details. The devops agent and coolify-ops skill read it for SSH + Coolify access. Never commit the .local.json.",
+  "ssh": {
+    "host": "<aws-public-ip-or-hostname>",
+    "user": "ubuntu",
+    "port": 22,
+    "identityFile": "~/.ssh/id_ed25519"
+  },
+  "coolify": {
+    "url": "https://coolify.golfbuggyguy.com",
+    "appName": "mx360adventures-website",
+    "apiToken": ""
+  }
+}
