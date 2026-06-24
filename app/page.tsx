@@ -6,9 +6,14 @@ import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/motion/reveal";
 import { Hero } from "@/components/feature/home/hero";
 import { TrustBar } from "@/components/feature/home/trust-bar";
+import { PartnersStrip } from "@/components/feature/home/partners-strip";
 import { FeaturedRail } from "@/components/feature/home/featured-rail";
+import { HowItWorks } from "@/components/feature/home/how-it-works";
 import { CategoriesGrid } from "@/components/feature/home/categories-grid";
+import { WhyChooseUs } from "@/components/feature/home/why-choose-us";
+import { StatsBand } from "@/components/feature/home/stats-band";
 import { SocialProof } from "@/components/feature/home/social-proof";
+import { Faq } from "@/components/feature/home/faq";
 
 export default async function HomePage() {
   const [featured, all] = await Promise.all([
@@ -22,9 +27,14 @@ export default async function HomePage() {
     <>
       <Hero />
       <TrustBar />
+      <PartnersStrip />
       <FeaturedRail experiences={rail} />
+      <HowItWorks />
       <CategoriesGrid />
+      <WhyChooseUs />
+      <StatsBand />
       <SocialProof />
+      <Faq />
 
       {/* Closing CTA band */}
       <section className="dark relative overflow-hidden bg-[image:var(--gradient-dusk)] py-20 text-foreground">

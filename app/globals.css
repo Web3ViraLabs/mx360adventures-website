@@ -177,3 +177,10 @@
   .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
   .text-balance { text-wrap: balance; }
 }
+
+/* Infinite marquee (partner strip). Duplicate the track in markup; this slides
+   it by half its width. Frozen automatically under prefers-reduced-motion. */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}

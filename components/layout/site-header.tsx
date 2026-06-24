@@ -62,7 +62,7 @@ export function SiteHeader() {
             <span className="hidden text-foreground sm:inline">{siteConfig.shortName}</span>
           </Link>
 
-          <nav className="hidden items-center gap-1 md:flex">
+          <nav className="hidden items-center gap-0.5 md:flex">
             {categories.map((c) => (
               <Link
                 key={c.slug}
@@ -72,9 +72,22 @@ export function SiteHeader() {
                 {c.name}
               </Link>
             ))}
+            <Link
+              href="/about"
+              className="rounded-full px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-foreground/5 hover:text-foreground"
+            >
+              About
+            </Link>
           </nav>
 
           <div className="flex items-center gap-1.5">
+            <Button
+              asChild
+              size="sm"
+              className="hidden h-9 rounded-full px-4 shadow-[var(--shadow-glow)] lg:inline-flex"
+            >
+              <Link href="/adventures">Book now</Link>
+            </Button>
             <Button
               variant="ghost"
               size="icon"
@@ -119,7 +132,22 @@ export function SiteHeader() {
                       </span>
                     </Link>
                   ))}
+                  <Link
+                    href="/about"
+                    onClick={() => setOpen(false)}
+                    className="rounded-lg px-3 py-3 text-base font-medium transition-colors hover:bg-muted"
+                  >
+                    About us
+                    <span className="block text-sm font-normal text-muted-foreground">
+                      Our story &amp; the crew
+                    </span>
+                  </Link>
                 </nav>
+                <div className="mt-4 px-4">
+                  <Button asChild className="w-full" onClick={() => setOpen(false)}>
+                    <Link href="/adventures">Book an adventure</Link>
+                  </Button>
+                </div>
               </SheetContent>
             </Sheet>
           </div>
