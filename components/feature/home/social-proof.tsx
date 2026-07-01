@@ -33,7 +33,7 @@ const TESTIMONIALS = [
 
 export function SocialProof() {
   return (
-    <section className="py-20">
+    <section className="pattern-waves py-20">
       <Container>
         <RevealGroup className="grid grid-cols-2 gap-6 sm:grid-cols-4">
           {STATS.map((s) => (

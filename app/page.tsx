@@ -16,6 +16,7 @@ import { StatsBand } from "@/components/feature/home/stats-band";
 import { Gallery } from "@/components/feature/home/gallery";
 import { SocialProof } from "@/components/feature/home/social-proof";
 import { Faq } from "@/components/feature/home/faq";
+import { BuggySilhouette } from "@/components/decor/buggy";
 
 export default async function HomePage() {
   const [featured, all] = await Promise.all([
@@ -40,9 +41,10 @@ export default async function HomePage() {
       <SocialProof />
       <Faq />
 
-      {/* Closing CTA band */}
+      {/* Closing CTA band — a buggy tears off the edge */}
       <section className="dark relative overflow-hidden bg-[image:var(--gradient-dusk)] py-20 text-foreground">
-        <Container className="text-center">
+        <BuggySilhouette className="pointer-events-none absolute -bottom-4 right-0 w-[34rem] max-w-[70%] translate-x-[32%] text-ember-400/25" />
+        <Container className="relative text-center">
           <Reveal>
             <h2 className="mx-auto max-w-2xl text-balance font-display text-3xl font-extrabold sm:text-5xl">
               The desert is waiting. Pick your slot.
