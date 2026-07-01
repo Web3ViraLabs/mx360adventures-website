@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, ShoppingBag } from "lucide-react";
-import { categories, siteConfig } from "@/lib/site";
+import { categories, mainNav, siteConfig } from "@/lib/site";
 import { cn } from "@/lib/utils";
 import { useCart, selectCount } from "@/lib/store/cart";
 import { useMounted } from "@/lib/hooks";
@@ -62,22 +62,26 @@ export function SiteHeader() {
             <span className="hidden text-foreground sm:inline">{siteConfig.shortName}</span>
           </Link>
 
-          <nav className="hidden items-center gap-0.5 md:flex">
-            {categories.map((c) => (
-              <Link
-                key={c.slug}
-                href={`/adventures/${c.slug}`}
-                className="rounded-full px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-foreground/5 hover:text-foreground"
-              >
-                {c.name}
-              </Link>
-            ))}
-            <Link
-              href="/about"
-              className="rounded-full px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-foreground/5 hover:text-foreground"
-            >
-              About
-            </Link>
+          <nav className="hidden items-center gap-1 md:flex">
+            {mainNav.map((item) => {
+              const active =
+                item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  aria-current={active ? "page" : undefined}
+                  className={cn(
+                    "rounded-full px-3.5 py-2 text-sm font-medium transition-colors",
+                    active
+                      ? "bg-foreground/10 text-foreground"
+                      : "text-foreground/80 hover:bg-foreground/5 hover:text-foreground"
+                  )}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
           </nav>
 
           <div className="flex items-center gap-1.5">
@@ -114,36 +118,40 @@ export function SiteHeader() {
                   <Menu className="size-5" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-80">
+              <SheetContent side="right" className="flex w-80 flex-col">
                 <SheetHeader>
-                  <SheetTitle>Adventures</SheetTitle>
+                  <SheetTitle>Menu</SheetTitle>
                 </SheetHeader>
                 <nav className="mt-2 flex flex-col px-2">
+                  {mainNav.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={() => setOpen(false)}
+                      className="rounded-lg px-3 py-3 text-base font-semibold transition-colors hover:bg-muted"
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </nav>
+
+                <p className="mt-4 px-5 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                  By ride
+                </p>
+                <nav className="mt-1 flex flex-col px-2">
                   {categories.map((c) => (
                     <Link
                       key={c.slug}
                       href={`/adventures/${c.slug}`}
                       onClick={() => setOpen(false)}
-                      className="rounded-lg px-3 py-3 text-base font-medium transition-colors hover:bg-muted"
+                      className="rounded-lg px-3 py-2.5 text-sm font-medium text-foreground/80 transition-colors hover:bg-muted hover:text-foreground"
                     >
                       {c.name}
-                      <span className="block text-sm font-normal text-muted-foreground">
-                        {c.tagline}
-                      </span>
                     </Link>
                   ))}
-                  <Link
-                    href="/about"
-                    onClick={() => setOpen(false)}
-                    className="rounded-lg px-3 py-3 text-base font-medium transition-colors hover:bg-muted"
-                  >
-                    About us
-                    <span className="block text-sm font-normal text-muted-foreground">
-                      Our story &amp; the crew
-                    </span>
-                  </Link>
                 </nav>
-                <div className="mt-4 px-4">
+
+                <div className="mt-auto px-4 pb-2 pt-4">
                   <Button asChild className="w-full" onClick={() => setOpen(false)}>
                     <Link href="/adventures">Book an adventure</Link>
                   </Button>

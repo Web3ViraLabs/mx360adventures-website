@@ -19,6 +19,16 @@ export const siteConfig = {
   },
 } as const;
 
+/** Primary navigation shown in the header. Labels chosen to fit the brand and
+ *  each destination's own headline (Gallery → "Moments in the dunes", etc.). */
+export const mainNav = [
+  { label: "Home", href: "/" },
+  { label: "Adventures", href: "/adventures" },
+  { label: "Moments", href: "/gallery" },
+  { label: "Our Story", href: "/about" },
+  { label: "Get in Touch", href: "/contact" },
+] as const;
+
 export type Category = {
   slug: "quad" | "buggy" | "mx" | "safari" | "combo";
   name: string;

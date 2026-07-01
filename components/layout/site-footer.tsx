@@ -91,7 +91,8 @@ export function SiteFooter() {
           </h3>
           <ul className="mt-4 space-y-2 text-sm">
             <li><Link href="/about" className="text-foreground/80 hover:text-primary">About us</Link></li>
-            <li><Link href="/adventures" className="text-foreground/80 hover:text-primary">All experiences</Link></li>
+            <li><Link href="/gallery" className="text-foreground/80 hover:text-primary">Gallery</Link></li>
+            <li><Link href="/contact" className="text-foreground/80 hover:text-primary">Contact us</Link></li>
             <li><Link href="/legal/terms" className="text-foreground/80 hover:text-primary">Terms &amp; conditions</Link></li>
             <li><Link href="/legal/privacy" className="text-foreground/80 hover:text-primary">Privacy policy</Link></li>
           </ul>

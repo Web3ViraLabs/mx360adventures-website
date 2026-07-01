@@ -28,7 +28,7 @@ export function Parallax({
 
   return (
     <div ref={ref} className={cn("relative overflow-hidden", className)}>
-      <motion.div style={{ y: reduce ? 0 : y }} className="h-full w-full">
+      <motion.div style={{ y: reduce ? 0 : y }} className="relative h-full w-full">
         {children}
       </motion.div>
     </div>
