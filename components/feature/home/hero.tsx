@@ -66,9 +66,7 @@ export function Hero() {
 
             <h1 className="mt-5 text-balance font-display text-5xl font-extrabold leading-[1.02] tracking-tight sm:text-7xl">
               Ride the storm.
-              <span className="block bg-[image:var(--gradient-ember)] bg-clip-text text-transparent">
-                Own the dunes.
-              </span>
+              <span className="text-gradient-ember block">Own the dunes.</span>
             </h1>
 
             <p className="mt-6 max-w-xl text-lg text-white/80">

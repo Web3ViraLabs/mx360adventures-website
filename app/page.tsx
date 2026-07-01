@@ -10,8 +10,10 @@ import { PartnersStrip } from "@/components/feature/home/partners-strip";
 import { FeaturedRail } from "@/components/feature/home/featured-rail";
 import { HowItWorks } from "@/components/feature/home/how-it-works";
 import { CategoriesGrid } from "@/components/feature/home/categories-grid";
+import { Interstitial } from "@/components/feature/home/interstitial";
 import { WhyChooseUs } from "@/components/feature/home/why-choose-us";
 import { StatsBand } from "@/components/feature/home/stats-band";
+import { Gallery } from "@/components/feature/home/gallery";
 import { SocialProof } from "@/components/feature/home/social-proof";
 import { Faq } from "@/components/feature/home/faq";
 
@@ -31,8 +33,10 @@ export default async function HomePage() {
       <FeaturedRail experiences={rail} />
       <HowItWorks />
       <CategoriesGrid />
+      <Interstitial />
       <WhyChooseUs />
       <StatsBand />
+      <Gallery />
       <SocialProof />
       <Faq />
 

@@ -10,9 +10,9 @@ import { companyStats } from "@/lib/company";
 export function StatsBand() {
   return (
     <section className="dark relative overflow-hidden bg-midnight-900 py-20 text-foreground">
-      {/* Decorative glow */}
-      <div className="pointer-events-none absolute -left-24 top-1/2 size-72 -translate-y-1/2 rounded-full bg-ember-600/20 blur-3xl" />
-      <div className="pointer-events-none absolute -right-24 top-1/3 size-72 rounded-full bg-midnight-400/20 blur-3xl" />
+      {/* Decorative drifting glow */}
+      <div className="pointer-events-none absolute -left-24 top-1/2 size-72 -translate-y-1/2 animate-[float_11s_ease-in-out_infinite] rounded-full bg-ember-600/25 blur-3xl" />
+      <div className="pointer-events-none absolute -right-24 top-1/3 size-72 animate-[float_9s_ease-in-out_infinite_reverse] rounded-full bg-midnight-400/25 blur-3xl" />
 
       <Container className="relative">
         <Reveal className="text-center">
@@ -33,7 +33,7 @@ export function StatsBand() {
                   suffix={s.suffix}
                   prefix={s.prefix}
                   decimals={s.decimals}
-                  className="bg-[image:var(--gradient-ember)] bg-clip-text text-transparent"
+                  className="text-gradient-ember"
                 />
               </p>
               <p className="mt-2 text-sm font-medium text-white/70">{s.label}</p>

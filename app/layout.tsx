@@ -5,6 +5,7 @@ import { siteConfig } from "@/lib/site";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { CartDrawer } from "@/components/feature/cart/cart-drawer";
+import { ScrollProgress } from "@/components/motion/scroll-progress";
 import { Toaster } from "@/components/ui/sonner";
 
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"], display: "swap" });
@@ -57,6 +58,7 @@ export default function RootLayout({
       className={`${inter.variable} ${sora.variable} ${geistMono.variable} h-full`}
     >
       <body className="flex min-h-full flex-col">
+        <ScrollProgress />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
