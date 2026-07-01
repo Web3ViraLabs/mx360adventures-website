@@ -12,7 +12,7 @@ const STEPS = [
 
 export function HowItWorks() {
   return (
-    <section className="pattern-dots-stars py-20">
+    <section className="py-20">
       <Container>
         <SectionHeading
           align="center"
