@@ -8,7 +8,7 @@ import { BLUR_DATA_URL } from "@/lib/images";
 
 export function WhyChooseUs() {
   return (
-    <section className="bg-secondary/30 py-20">
+    <section className="pattern-dots-stars-sm bg-secondary/30 py-20">
       <Container>
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <div>
